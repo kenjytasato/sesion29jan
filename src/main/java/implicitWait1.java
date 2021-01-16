@@ -21,7 +21,6 @@ public static void main(String[] args)
     driver = new ChromeDriver();
 
 
-
     //abrimos el browser
     driver.get("https://www.mercadolibre.com.pe/");
 

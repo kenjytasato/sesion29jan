@@ -4,10 +4,10 @@ public class ejercicio1 {
 
     //colocar el implicit wait como un metodo
     //buscar macbook
-    //comparar los resultados de la primera pagina
+    //comparar los resultados  3 de la primera pagina
     //entrar al resultado mas barato
     //imprimir por consola el titulo del producto y cuantos colores
-    // tiene disponible
+    //tiene disponible
 
 //ejercicio 2
 
