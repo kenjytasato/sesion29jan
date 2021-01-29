@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SmokeTest" verbose="2" parallel="classes" thread-count="4"
+    data-provider-thread-count="3">
+    <test name="SmokeTest">
+        <classes>
+
+            <class name="controlesTest">
+            </class>
+
+        </classes>
+    </test>
+
+</suite>

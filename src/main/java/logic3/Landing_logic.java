@@ -19,8 +19,7 @@ public class Landing_logic {
 
     }
 
-    public void login(String user, String pass)
-    {
+    public void login(String user, String pass) throws InterruptedException {
 
         lp.setUsername(user);
         lp.setPassword(pass);

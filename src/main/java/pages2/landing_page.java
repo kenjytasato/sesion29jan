@@ -3,6 +3,7 @@ package pages2;
 import driver.driver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -27,14 +28,21 @@ public class landing_page {
         PageFactory.initElements(this.Driver.returnDriver(), this);
     }
 
-    public void setUsername(String user) {
+    public void setUsername(String user) throws InterruptedException {
         Driver.implicitwait();
-        user1.sendKeys(user);
+        Actions builder = new Actions(Driver.returnDriver());
+        builder.moveToElement(user1).click().sendKeys(user).perform();
+      //  builder.moveToElement(user1).click().sendKeys(user).build().perform();
+
+
     }
 
-    public void setPassword(String password) {
+    public void setPassword(String password) throws InterruptedException {
         Driver.implicitwait();
-        pass1.sendKeys(password);
+        Actions builder = new Actions(Driver.returnDriver());
+        builder.moveToElement(pass1).click().sendKeys(password).build().perform();
+
+
     }
 
     public void login() {

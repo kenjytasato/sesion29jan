@@ -32,9 +32,9 @@ public class driver {
 
     public static void setupClass()
     {
-        WebDriverManager.chromedriver().version("87.0.4280.88").setup();
+        WebDriverManager.chromedriver().version("88.0.4324.96").setup();
 
-      //  WebDriverManager.chromedriver().setup();
+      // WebDriverManager.chromedriver().setup();
     }
     public void setupTest() {
         driver = new ChromeDriver();
@@ -107,12 +107,9 @@ public class driver {
 
     public void explicitWait(WebElement element)
     {
-        String elementoClass = element.getAttribute("class");
-        System.out.println(elementoClass);
-        String elementoPath = "//div[@class='"+ elementoClass + "']";
-        WebDriverWait wait = new WebDriverWait(driver,10);
-        //wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(elementoPath)));
-        wait.until(ExpectedConditions.visibilityOfElementLocated((By) element));
+        WebDriverWait wait = new WebDriverWait(driver,20);
+           //   wait.until(ExpectedConditions.elementToBeClickable(element));
+              wait.until(ExpectedConditions.visibilityOf(element));
 
     }
     public void customWait_xpath (By minedupath)
@@ -144,27 +141,57 @@ public class driver {
         driver.findElement(mineduPath).click();
            }
 
-           public void switchWindows()
+           public String windowParent()
+           {
+               String winHandleBefore = driver.getWindowHandle();
+
+               return winHandleBefore;
+           }
+
+
+           public void switchWindows(String winHandle)
     {
         // Store the current window handle
-        String winHandleBefore = driver.getWindowHandle();
+
 // Perform the click operation that opens new window
 // Switch to new window opened
-        for(String winHandle : driver.getWindowHandles()){
+      //  for(String winHandle : driver.getWindowHandles()){
             driver.switchTo().window(winHandle);
-        }
+   //     }
 // Perform the actions on new window
 // Close the new window, if that window no more required
 //   driver.close();
 // Switch back to original browser (first window)
     //    driver.switchTo().window(winHandleBefore);
-
-
     }
+    public void switchToNewWindows() {
+        // Store the current window handle
+
+// Perform the click operation that opens new window
+// Switch to new window opened
+        for (String winHandle : driver.getWindowHandles()) {
+            driver.switchTo().window(winHandle);
+            //     }
+// Perform the actions on new window
+// Close the new window, if that window no more required
+//   driver.close();
+// Switch back to original browser (first window)
+            //    driver.switchTo().window(winHandleBefore);
+        }
+    }
+
 
     public void implicitwait() {
 
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+     //   Thread.sleep(4000);
+
+    }
+    public void implicitwait2() throws InterruptedException {
+
+
+         Thread.sleep(8000);
+
     }
 
 
